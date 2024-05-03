@@ -94,6 +94,12 @@ La composición y la herencia son dos técnicas que permiten a los desarrollador
    - Se podría considerar implementar validaciones dentro de los setters para asegurar la integridad de los datos
      (por ejemplo, que el año de lanzamiento o la evaluación estén dentro de un rango aceptable), pero esto dependería de requisitos específicos no mencionados en el código original.
 
+4. **Adición del director en Setter y Getter**
+   - Un dato importante que sólo nuestras películas tendrán es de una cadena llamada `Director` que almacena al director de esta obra.
+  
+5. **Sobre-escritura del método `mostrarFichaTecnica`**
+   - Para mostrar al director en la Ficha Técnica se ha sobre-escrito el método de la clase `Tìtulo` extendiendo su comportamiento
+
 Esta versión revisada del código es más limpia, clara y fácil de mantener, con una nomenclatura más consistente y una documentación adecuada que facilita 
 su entendimiento y uso en un contexto profesional de desarrollo.
 

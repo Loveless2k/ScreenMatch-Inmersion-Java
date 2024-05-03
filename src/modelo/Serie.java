@@ -70,8 +70,7 @@ public class Serie extends Titulo {
 
     @Override
     public void mostrarFichaTecnica() {
-        System.out.println("****FICHA TÉCNICA****");
-        System.out.println("Nombre de la serie: " + getNombre());
+        super.mostrarFichaTecnica();
         System.out.println("Número de temporadas: " + getTemporadas());
         System.out.println("Episodios por temporada: " + getEpisodiosPorTemporada());
         System.out.println("Duración por episodio: " + getDuracionEnMinutosPorEpisodio() + " minutos");

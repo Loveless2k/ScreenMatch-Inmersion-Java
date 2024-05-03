@@ -67,12 +67,14 @@ public class Principal {
         System.out.println("Ingrese el nombre de la serie:");
         String nombre = scanner.nextLine();
 
+        int anhioLanzamiento = leerEntero("Ingrese el anhio de lanzamiento");
         int numeroDeTemporadas = leerEntero("Ingrese el número de temporadas de la serie:");
         int episodiosPorTemporada = leerEntero("Ingrese los episodios por temporada de la serie:");
         int duracionEnMinutosPorEpisodio = leerEntero("Ingrese la duración en minutos por episodio:");
 
         Serie serie = new Serie();
         serie.setNombre(nombre);
+        serie.setAnioLanzamiento(anhioLanzamiento);
         serie.setTemporadas(numeroDeTemporadas);
         serie.setEpisodiosPorTemporada(episodiosPorTemporada);
         serie.setDuracionEnMinutosPorEpisodio(duracionEnMinutosPorEpisodio);

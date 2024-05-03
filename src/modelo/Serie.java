@@ -15,7 +15,9 @@ public class Serie extends Titulo {
      */
     @Override
     public int getDuracionEnMinutos() {
-        return duracionEnMinutosPorEpisodio * episodiosPorTemporada * temporadas;
+        int duracionTotal = duracionEnMinutosPorEpisodio * episodiosPorTemporada * temporadas;
+        setDuracionEnMinutos(duracionTotal);
+        return duracionTotal;
     }
 
     public int getTemporadas() {
@@ -64,5 +66,15 @@ public class Serie extends Titulo {
         } else {
             throw new IllegalArgumentException("La duración de los episodios no puede ser negativa.");
         }
+    }
+
+    @Override
+    public void mostrarFichaTecnica() {
+        System.out.println("****FICHA TÉCNICA****");
+        System.out.println("Nombre de la serie: " + getNombre());
+        System.out.println("Número de temporadas: " + getTemporadas());
+        System.out.println("Episodios por temporada: " + getEpisodiosPorTemporada());
+        System.out.println("Duración por episodio: " + getDuracionEnMinutosPorEpisodio() + " minutos");
+        System.out.println("Duración total de la serie: " + getDuracionEnHorasYMinutos());
     }
 }

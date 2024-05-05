@@ -79,73 +79,39 @@ La composición y la herencia son dos técnicas que permiten a los desarrollador
 
 7. **Pruebas**:
    - Finalmente, prueba el programa para asegurarte de que todos los componentes funcionan como se espera y que el programa maneja correctamente las entradas inválidas.
-  
-### Modificaciones a la clase `Película`
 
-1. **Nombres de Variables Refinados:**
-   - Cambié `fechaDeLanzamiento` a `anioLanzamiento` para aclarar que se refiere al año.
-   - Cambié `incluidoEnElPlanBasico` a `incluidoEnPlanBasico` y `tiempoDeDuracionEnMinutos` a `duracionEnMinutos` para hacer los nombres más concisos y mantener la claridad.
+## Diseño de la Solución
+La solución utiliza clases dentro de un modelo de herencia para representar títulos generales (`Titulo`) y especializaciones para `Pelicula` y `Serie`. Además, se incorporan utilidades para manejar la entrada de datos del usuario y se estructura un menú interactivo para facilitar la gestión.
 
-2. **Comentarios y Documentación:**
-   - Añadí comentarios de documentación de Java (`/** */`) para describir la funcionalidad de la clase y de cada método. Esto mejora la legibilidad y facilita el mantenimiento.
+### Estructura de Clases
+- `Titulo`: Clase base que define los atributos y métodos comunes.
+- `Pelicula`: Subclase de `Titulo` que añade atributos específicos de películas.
+- `Serie`: Subclase de `Titulo` que maneja características específicas de series, como temporadas y episodios.
+- `InputHelper`: Clase de utilidad para manejar la entrada de datos desde la consola.
+- `Principal`: Contiene la lógica principal del negocio y el menú interactivo.
+- `Main`: Punto de entrada de la aplicación que llama al método para mostrar el menú.
 
-3. **Mejoras de Rendimiento y Prácticas:**
-   - Mantuve la estructura básica y los métodos porque ya eran adecuados para las operaciones típicas de una clase de modelo.
-   - Se podría considerar implementar validaciones dentro de los setters para asegurar la integridad de los datos
-     (por ejemplo, que el año de lanzamiento o la evaluación estén dentro de un rango aceptable), pero esto dependería de requisitos específicos no mencionados en el código original.
+## Implementación del Diseño
+La aplicación se desarrolla en Java, utilizando encapsulamiento para proteger y organizar los datos, herencia para reducir redundancias y mejorar la mantenibilidad, y control de excepciones para manejar entradas de usuario no válidas.
 
-4. **Adición del director en Setter y Getter**
-   - Un dato importante que sólo nuestras películas tendrán es de una cadena llamada `Director` que almacena al director de esta obra.
-  
-5. **Sobre-escritura del método `mostrarFichaTecnica`**
-   - Para mostrar al director en la Ficha Técnica se ha sobre-escrito el método de la clase `Tìtulo` extendiendo su comportamiento
+### Detalles del Código
+- **Clase `Titulo`**: Define atributos comunes y métodos para mostrar información.
+- **Clase `Pelicula` y `Serie`**: Extienden `Titulo` y añaden particularidades.
+- **Clase `InputHelper`**: Provee métodos estáticos para leer diferentes tipos de datos.
+- **Clase `Principal`**: Gestiona la interacción con el usuario y coordina la funcionalidad de la aplicación.
+- **Clase `Main`**: Inicia la ejecución del programa.
 
-Esta versión revisada del código es más limpia, clara y fácil de mantener, con una nomenclatura más consistente y una documentación adecuada que facilita 
-su entendimiento y uso en un contexto profesional de desarrollo.
+## Buenas Prácticas y Metodologías Aplicadas
+- **Encapsulamiento**: Uso de modificadores de acceso para proteger los datos.
+- **Herencia**: Para evitar duplicación y fomentar la reutilización del código.
+- **Principio de responsabilidad única**: Cada clase tiene una clara responsabilidad y propósito.
+- **Manejo de excepciones**: Control robusto de errores para evitar fallos en tiempo de ejecución.
+- **Uso de métodos estáticos cuando es adecuado**: Para utilidades que no mantienen estado.
 
-### Modificaciones a la clase `Serie`
+## Instrucciones de Uso
+1. Clone el repositorio a su máquina local.
+2. Compile y ejecute la clase `Main`.
+3. Siga las instrucciones en la consola para interactuar con el programa.
 
-1. **Documentación Añadida:**
-   - Añadí comentarios Javadoc a la clase y a cada método para explicar su propósito y uso.
-     Esto facilita la comprensión del código por otros desarrolladores y mejora la documentación de la clase.
-
-2. **Validación en Setters:**
-   - Introduje validaciones en los métodos setters para asegurar que no se asignen valores negativos a las propiedades
-     `temporadas`, `episodiosPorTemporada`, y `duracionEnMinutosPorEpisodio`. Esto evita estados inválidos en los objetos de `Serie`.
-
-3. **Excepciones para Valores Inválidos:**
-   - Se lanzan excepciones del tipo `IllegalArgumentException` si se intenta establecer un valor no permitido.
-     Esto garantiza que la instancia de `Serie` siempre esté en un estado consistente y válido.
-
-Estos cambios mejoran la robustez del código y aseguran que los objetos de la clase `Serie` se manejen de manera correcta, 
-con todos los datos validados apropiadamente. Además, la documentación añadida facilita el mantenimiento y escalabilidad del código en proyectos más grandes.
-
-### Modificaciones a la clase `Título`
-
-1. **Nombres de Variables Refinados:**
-   - Cambié `fechaDeLanzamiento` a `anioLanzamiento` y `tiempoDeDuracionEnMinutos` a `duracionEnMinutos` para mayor claridad y consistencia con convenciones
-     comunes en modelado de datos.
-
-2. **Validación y Prácticas de Codificación:**
-   - Mantuve la simplicidad en la lógica dado que es una clase modelo.
-     Sin embargo, podrían añadirse validaciones en los setters para asegurar que los datos son razonables (como no permitir años de lanzamiento futuros o valores negativos).
-
-3. **Documentación con Javadoc:**
-   - Añadí comentarios Javadoc en la clase y cada método para mejorar la comprensión del código y su propósito.
-     Esto es crucial en ambientes de desarrollo profesional donde múltiples desarrolladores pueden trabajar con el mismo código.
-
-4. **Mejora en la Legibilidad y Mantenimiento del Código:**
-   - Los nombres de variables más descriptivos y los comentarios claros facilitan el mantenimiento y la extensión futura de la clase.
-     Además, hacer el código más legible y consistente ayuda a evitar errores y mejora la colaboración en equipos.
-
-Estos cambios hacen que el código sea más profesional, claro y fácil de mantener, alineándose con buenas prácticas en el desarrollo de software.
-
-## Clase Main
-
-![33](https://github.com/Loveless2k/ScreenMatch-Inmersion-Java/assets/130776120/96b145a1-35ed-4264-80a1-8b701f845e72)
-
-- **`public class Main`**: Define la clase `Main`.
-- **`public static void main(String[] args)`**: Método principal que Java utiliza como punto de entrada para cualquier aplicación.
-- **`Principal.muestraElMenu();`**: Llama al método `muestraElMenu` de la clase `Principal`. Dado que es un método estático, no es necesario instanciar la clase `Principal`.
-
-Este código es extremadamente simple, sirviendo como punto de lanzamiento para el programa, que maneja interacciones más complejas dentro de la clase `Principal`.
+## Autor
+Jorge Salgado

@@ -1,9 +1,9 @@
 
-“	java:S117*"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÚØÿ8ƒñ°ô1J$923422e3-0475-44db-9f6c-5ad7af1d5960
-m	java:S1062"+Replace this use of System.out by a logger.(¡æĞû8‰ñ°ô1J$7ac0ad35-70e9-47e7-a6bd-06cb4d7e4fde
-r	java:S1063"+Replace this use of System.out by a logger.(âÓÍŒûÿÿÿÿ8‰ñ°ô1J$83a41766-74c4-4575-9aeb-e7b800ad0292
-m	java:S1064"+Replace this use of System.out by a logger.(Íšî™8Šñ°ô1J$ac08f1b1-44fb-4bb3-88b3-7511d11a41a0
-m	java:S1065"+Replace this use of System.out by a logger.(×Ô ™8Šñ°ô1J$605bd524-ec4b-46c4-a633-0da3f8f0179e
-m	java:S1066"+Replace this use of System.out by a logger.(µ ”´8¼ñ÷±ô1J$1e1ccd26-5df8-4580-8212-345643843188
-€
-java:S1068"8Remove this unused "incluidoEnPlanBasico" private field.(¿ª¹íÿÿÿÿÿ8ôÌú±ô1J$25a96e58-e60e-4442-a49d-f604f9be991d
+m	java:S117*"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÙÚØÿ8±ÍŠ³ô1
+G	java:S1062"+Replace this use of System.out by a logger.(¡æĞû8»ÍŠ³ô1
+L	java:S1063"+Replace this use of System.out by a logger.(âÓÍŒûÿÿÿÿ8¼ÍŠ³ô1
+G	java:S1064"+Replace this use of System.out by a logger.(Íšî™8¼ÍŠ³ô1
+G	java:S1065"+Replace this use of System.out by a logger.(×Ô ™8½ÍŠ³ô1
+G	java:S1066"+Replace this use of System.out by a logger.(µ ”´8½ÍŠ³ô1
+Z
+java:S1068"8Remove this unused "incluidoEnPlanBasico" private field.(¿ª¹íÿÿÿÿÿ8¾ÍŠ³ô1

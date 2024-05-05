@@ -7,11 +7,9 @@ package modelo;
 public class Pelicula extends Titulo{
     private String director;
 
-    public String getDirector() {
-        return director;
-    }
-
-    public void setDirector(String director) {
+    public Pelicula(String nombre, int anhioLanzamiento, double evaluacion, boolean incluidoEnPlanBasico,
+                    int duracionEnMinutos, String director){
+        super(nombre, anhioLanzamiento, evaluacion, incluidoEnPlanBasico, duracionEnMinutos);
         this.director = director;
     }
 

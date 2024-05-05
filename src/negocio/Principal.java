@@ -3,25 +3,21 @@ package negocio;
 import modelo.Pelicula;
 import modelo.Serie;
 import modelo.Titulo;
+import util.InputHelper;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Principal {
-    private static final Scanner scanner = new Scanner(System.in);
-    private static List<Titulo> contenido = new ArrayList<Titulo>();
-
-    public static void main(String[] args) {
-        muestraElMenu();
-    }
+    private static List<Titulo> contenido = new ArrayList<>();
+    private static int sumaTiempoMaraton;
 
     public static void muestraElMenu(){
         int opcion = 0;
 
         while (opcion != 9) {
             mostrarMenu();
-            opcion = leerEntero("Seleccione una opción: ");
+            opcion = InputHelper.leerEntero("Seleccione una opción: ");
 
             switch (opcion) {
                 case 1 -> registrarPelicula();
@@ -46,40 +42,16 @@ public class Principal {
     }
 
     private static void registrarPelicula() {
-        System.out.println("Ingrese el nombre de la película:");
-        String nombre = scanner.nextLine();
-        int fechaDeLanzamiento = leerEntero("Ingrese el año de lanzamiento de la película:");
-        int duracionEnMinutos = leerEntero("Ingrese la duración en minutos de la película:");
-        System.out.println("Ingrese el nombre del director de la película:");
-        String director = scanner.nextLine();
-
-        Pelicula pelicula = new Pelicula();
-        pelicula.setNombre(nombre);
-        pelicula.setAnioLanzamiento(fechaDeLanzamiento);
-        pelicula.setDuracionEnMinutos(duracionEnMinutos);
-        pelicula.setDirector(director);
+        Pelicula pelicula = formularioDeRegistroPelicula();
+        System.out.println("¡Pelicula registrada con éxito!");
         pelicula.mostrarFichaTecnica();
-
         contenido.add(pelicula);
     }
 
     private static void registrarSerie(){
-        System.out.println("Ingrese el nombre de la serie:");
-        String nombre = scanner.nextLine();
-
-        int anhioLanzamiento = leerEntero("Ingrese el anhio de lanzamiento");
-        int numeroDeTemporadas = leerEntero("Ingrese el número de temporadas de la serie:");
-        int episodiosPorTemporada = leerEntero("Ingrese los episodios por temporada de la serie:");
-        int duracionEnMinutosPorEpisodio = leerEntero("Ingrese la duración en minutos por episodio:");
-
-        Serie serie = new Serie();
-        serie.setNombre(nombre);
-        serie.setAnioLanzamiento(anhioLanzamiento);
-        serie.setTemporadas(numeroDeTemporadas);
-        serie.setEpisodiosPorTemporada(episodiosPorTemporada);
-        serie.setDuracionEnMinutosPorEpisodio(duracionEnMinutosPorEpisodio);
+        Serie serie = formularioDeRegistroSerie();
+        System.out.println("¡Serie registrada con éxito!");
         serie.mostrarFichaTecnica();
-
         contenido.add(serie);
     }
 
@@ -88,31 +60,48 @@ public class Principal {
             throw new IllegalArgumentException("No hay elementos en el stream.");
         }
 
+        sumaTiempoMaraton = 0;
         System.out.println("Las películas y series consideradas para este cálculo son: ");
 
-        for (Titulo titulo : contenido) {
-            System.out.println((contenido.indexOf(titulo) + 1) + ": " + titulo.getNombre());
-        }
+        contenido.forEach(titulo -> {
+            System.out.println((contenido.indexOf(titulo) + 1) + ": " + titulo.getNombre() + " cuyo tiempo total es de "
+                    + titulo.getDuracionEnMinutos() + " minutos");
+            sumaTiempoMaraton += titulo.getDuracionEnMinutos();
+        });
 
-        System.out.println("El tiempo total de visualización en la maratón es de: " + Titulo.getDuracionEnHorasYMinutos(Titulo.getDuracionMaraton()));
+        System.out.println("El tiempo total de visualización en la maratón es de: "
+                + Titulo.getDuracionEnHorasYMinutos(sumaTiempoMaraton));
     }
 
-    private static int leerEntero(String mensaje) {
-        System.out.println(mensaje);
-        while (!scanner.hasNextInt()) {
-            scanner.nextLine(); // clear the invalid input
-            System.out.println("Por favor, ingrese un número válido.");
-        }
-        int valor = scanner.nextInt();
-        scanner.nextLine(); // consume the newline
-        return valor;
+    private static Pelicula formularioDeRegistroPelicula() {
+
+        System.out.println("Por favor, complete el siguiente formulario \n");
+
+        String nombre = InputHelper.leerCadena("A) Ingrese el nombre de la película:");
+        int fechaDeLanzamiento = InputHelper.leerEntero("B) Ingrese su año de lanzamiento:");
+        double evaluacion = InputHelper.leerDouble("C) Ingrese la evaluación de la película: ");
+        int duracionEnMinutos = InputHelper.leerEntero("D) Ingrese su duración, en minutos:");
+        String director =  InputHelper.leerCadena("A) Ingrese el nombre del director:");
+
+        return new Pelicula(nombre, fechaDeLanzamiento, evaluacion, false,
+                duracionEnMinutos, director);
     }
 
-    public List<Titulo> getContenido() {
-        return contenido;
+    private static Serie formularioDeRegistroSerie() {
+
+        System.out.println("Por favor, complete el siguiente formulario \n");
+
+        String nombre = InputHelper.leerCadena("A) Ingrese el nombre de la serie:");
+        int fechaDeLanzamiento = InputHelper.leerEntero("B) Ingrese su año de lanzamiento:");
+        double evaluacion = InputHelper.leerDouble("C) Ingrese la evaluación de la serie: ");
+        int temporadas = InputHelper.leerEntero("D) Ingrese el número de temporadas:");
+        int episodiosPorTemporada = InputHelper.leerEntero("E) Ingrese el número de episodios por temporada");
+        int duracionEnMinutosPorEpisodio = InputHelper.leerEntero("F) Ingrese el número de minutos por episodio:");
+
+        return new Serie(nombre, fechaDeLanzamiento, evaluacion, false, temporadas,
+                episodiosPorTemporada, duracionEnMinutosPorEpisodio);
     }
 
-    public void setContenido(List<Titulo> contenido) {
-        this.contenido = contenido;
-    }
+
+
 }

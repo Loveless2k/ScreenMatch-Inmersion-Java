@@ -4,6 +4,7 @@ import modelo.Pelicula;
 import modelo.Serie;
 import modelo.Titulo;
 import util.InputHelper;
+import util.RegistroMedia;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,14 +51,14 @@ public class Principal {
     }
 
     private static void registrarPelicula() {
-        Pelicula pelicula = formularioDeRegistroPelicula();
+        Pelicula pelicula = RegistroMedia.formularioDeRegistroPelicula();
         System.out.println("¡Pelicula registrada con éxito!");
         pelicula.mostrarFichaTecnica();
         contenido.add(pelicula);
     }
 
     private static void registrarSerie(){
-        Serie serie = formularioDeRegistroSerie();
+        Serie serie = RegistroMedia.formularioDeRegistroSerie();
         System.out.println("¡Serie registrada con éxito!");
         serie.mostrarFichaTecnica();
         contenido.add(serie);
@@ -79,30 +80,5 @@ public class Principal {
 
         System.out.println("El tiempo total de visualización en la maratón es de: "
                 + Titulo.getDuracionEnHorasYMinutos(sumaTiempoMaraton));
-    }
-
-    private static Pelicula formularioDeRegistroPelicula() {
-        System.out.println("Por favor, complete el siguiente formulario \n");
-
-        String nombre = InputHelper.leerCadena(String.format(NOMBRE, "de la película"));
-        int fechaDeLanzamiento = InputHelper.leerEntero(FECHA_LANZAMIENTO);
-        double evaluacion = InputHelper.leerDouble(String.format(EVALUACION, "de la película"));
-        int duracionEnMinutos = InputHelper.leerEntero(DURACION);
-        String director = InputHelper.leerCadena(DIRECTOR);
-
-        return new Pelicula(nombre, fechaDeLanzamiento, evaluacion, false, duracionEnMinutos, director);
-    }
-
-    private static Serie formularioDeRegistroSerie() {
-        System.out.println("Por favor, complete el siguiente formulario \n");
-
-        String nombre = InputHelper.leerCadena(String.format(NOMBRE, "de la serie"));
-        int fechaDeLanzamiento = InputHelper.leerEntero(FECHA_LANZAMIENTO);
-        double evaluacion = InputHelper.leerDouble(String.format(EVALUACION, "de la serie"));
-        int temporadas = InputHelper.leerEntero(TEMPORADAS);
-        int episodiosPorTemporada = InputHelper.leerEntero(EPISODIOS_POR_TEMPORADA);
-        int duracionEnMinutosPorEpisodio = InputHelper.leerEntero(DURACION_POR_EPISODIO);
-
-        return new Serie(nombre, fechaDeLanzamiento, evaluacion, false, temporadas, episodiosPorTemporada, duracionEnMinutosPorEpisodio);
     }
 }

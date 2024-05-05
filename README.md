@@ -5,11 +5,6 @@ El programa debe ser fácil de usar y capaz de manejar entradas básicas de los 
 
 https://github.com/Loveless2k/ScreenMatch-Inmersion-Java/assets/130776120/465925cc-2009-4c73-8577-5c04f8cefa26
 
-### Enunciado del Problema
-Desarrolla un programa en Java que funcione como un menú interactivo para un sistema de gestión de contenido multimedia. 
-El programa deberá permitir al usuario registrar nuevas películas, mostrando detalles como el nombre, año de lanzamiento y duración. 
-Además, el programa deberá permitir al usuario salir cuando lo desee.
-
 ## Para resolver el problema se aplicará POO (Programación Orientada a Objetos)
 ¿Qué es la programación orientada a objetos?
 
@@ -58,46 +53,31 @@ La composición y la herencia son dos técnicas que permiten a los desarrollador
 
 - **Principio de Responsabilidad Única**: La composición permite adherirse más fácilmente al principio de responsabilidad única, donde una clase debería tener una, y solo una, razón para cambiar. La herencia, por otro lado, puede llevar a situaciones donde una clase base tiene múltiples responsabilidades a través de sus sub
 
-### Paso a Paso para la Solución
+## Enunciado del Problema
+Organizar y gestionar eficientemente información sobre películas y series dentro de una plataforma de streaming, incluyendo su registro, visualización de tiempos totales y manejo de una base de datos accesible.
 
-1. **Creación de la Clase Principal**: Define una clase `Principal` que contenga todos los métodos necesarios para mostrar el menú, leer la entrada del usuario y
-   registrar las películas.
-   
-3. **Método para Mostrar el Menú**:
-   - Define un método estático `muestraElMenu` que imprime las opciones disponibles y maneja la entrada del usuario para diferentes acciones.
-   - Utiliza un bucle `while` para permitir al usuario interactuar con el menú hasta que decida salir.
-
-4. **Registrar Películas**:
-   - Crea un método específico para registrar una nueva película. Este método deberá pedir al usuario el nombre, año de lanzamiento y duración de la película.
-   - Valida las entradas para asegurar que los datos son correctos (p. ej., que el año y la duración no sean negativos).
-
-5. **Clase `Pelicula`**:
-   - Asegúrate de que la clase `Pelicula` tenga métodos adecuados para guardar los datos y mostrar la ficha técnica de la película.
-
-6. **Clase `Main`**:
-   - En la clase `Main`, simplemente llama al método `muestraElMenu` de la clase `Principal`.
-
-7. **Pruebas**:
-   - Finalmente, prueba el programa para asegurarte de que todos los componentes funcionan como se espera y que el programa maneja correctamente las entradas inválidas.
+## Solución Propuesta
+Desarrollar una aplicación en Java que permita el registro, almacenamiento y manejo de detalles específicos de películas y series, como nombre, director, año de lanzamiento, duración, etc., y que ofrezca la posibilidad de calcular el tiempo total de visualización para maratones de contenido.
 
 ## Diseño de la Solución
-La solución utiliza clases dentro de un modelo de herencia para representar títulos generales (`Titulo`) y especializaciones para `Pelicula` y `Serie`. Además, se incorporan utilidades para manejar la entrada de datos del usuario y se estructura un menú interactivo para facilitar la gestión.
+La solución emplea un modelo de herencia para representar títulos multimedia generales y especializados (`Titulo`, `Pelicula`, `Serie`). Incorpora utilidades para la entrada de datos del usuario y estructura un menú interactivo para gestionar la funcionalidad.
 
 ### Estructura de Clases
-- `Titulo`: Clase base que define los atributos y métodos comunes.
-- `Pelicula`: Subclase de `Titulo` que añade atributos específicos de películas.
-- `Serie`: Subclase de `Titulo` que maneja características específicas de series, como temporadas y episodios.
-- `InputHelper`: Clase de utilidad para manejar la entrada de datos desde la consola.
-- `Principal`: Contiene la lógica principal del negocio y el menú interactivo.
-- `Main`: Punto de entrada de la aplicación que llama al método para mostrar el menú.
+- `Titulo`: Clase base que define atributos y métodos comunes para todos los títulos.
+- `Pelicula`: Subclase de `Titulo`, añade atributos específicos de películas.
+- `Serie`: Subclase de `Titulo`, maneja características específicas de series de televisión.
+- `InputHelper`: Clase de utilidad para manejar entradas de datos desde la consola.
+- `RegistroMedia`: Clase de utilidad que encapsula la lógica de formularios para el registro de películas y series.
+- `Principal`: Contiene la lógica principal de negocio y el menú interactivo.
+- `Main`: Punto de entrada de la aplicación que inicia el menú.
 
 ## Implementación del Diseño
 La aplicación se desarrolla en Java, utilizando encapsulamiento para proteger y organizar los datos, herencia para reducir redundancias y mejorar la mantenibilidad, y control de excepciones para manejar entradas de usuario no válidas.
 
 ### Detalles del Código
-- **Clase `Titulo`**: Define atributos comunes y métodos para mostrar información.
-- **Clase `Pelicula` y `Serie`**: Extienden `Titulo` y añaden particularidades.
-- **Clase `InputHelper`**: Provee métodos estáticos para leer diferentes tipos de datos.
+- **Clase `RegistroMedia`**: Facilita la creación de formularios para el registro de películas y series, utilizando métodos estáticos y una clase interna para manejar información básica de los medios.
+- **Clases `Pelicula` y `Serie`**: Extienden `Titulo` y añaden particularidades como director o duración por episodio.
+- **Clase `InputHelper`**: Provee métodos estáticos para leer y validar diferentes tipos de datos.
 - **Clase `Principal`**: Gestiona la interacción con el usuario y coordina la funcionalidad de la aplicación.
 - **Clase `Main`**: Inicia la ejecución del programa.
 
@@ -113,5 +93,8 @@ La aplicación se desarrolla en Java, utilizando encapsulamiento para proteger y
 2. Compile y ejecute la clase `Main`.
 3. Siga las instrucciones en la consola para interactuar con el programa.
 
+## Licencia
+Este proyecto está licenciado bajo la Licencia MIT.
+
 ## Autor
-Jorge Salgado
+Jorge Daniel Salgado

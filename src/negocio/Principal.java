@@ -12,14 +12,6 @@ import java.util.List;
 public class Principal {
     private static List<Titulo> contenido = new ArrayList<>();
     private static int sumaTiempoMaraton;
-    private static final String NOMBRE = "A) Ingrese el nombre de %s:";
-    private static final String FECHA_LANZAMIENTO = "B) Ingrese su año de lanzamiento:";
-    private static final String EVALUACION = "C) Ingrese la evaluación de %s: ";
-    private static final String DURACION = "D) Ingrese su duración, en minutos:";
-    private static final String DIRECTOR = "A) Ingrese el nombre del director:";
-    private static final String TEMPORADAS = "D) Ingrese el número de temporadas:";
-    private static final String EPISODIOS_POR_TEMPORADA = "E) Ingrese el número de episodios por temporada:";
-    private static final String DURACION_POR_EPISODIO = "F) Ingrese el número de minutos por episodio:";
 
     public static void muestraElMenu(){
         int opcion = 0;

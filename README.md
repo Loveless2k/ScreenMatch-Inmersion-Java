@@ -93,8 +93,5 @@ La aplicación se desarrolla en Java, utilizando encapsulamiento para proteger y
 2. Compile y ejecute la clase `Main`.
 3. Siga las instrucciones en la consola para interactuar con el programa.
 
-## Licencia
-Este proyecto está licenciado bajo la Licencia MIT.
-
 ## Autor
 Jorge Daniel Salgado
